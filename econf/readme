@@ -1,0 +1,7 @@
+## 基于etcd的配置模块
+
+因此，一定要在etcd可连接的情况下new econf，否则会报错
+
+## 使用方法
+1. InitConfig() 调用初始化
+2. 使用 String() StringDef()等方法直接获取

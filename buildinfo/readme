@@ -1,0 +1,13 @@
+# shell 编译节点注入变量
+buildTime=`date +'%Y-%m-%d %H:%M:%S'`
+buildVersion=
+buildGoVersion=`go version`
+LDFlags=" \
+    -X 'github.com/dzhcool/buildinfo.build_time=${buildTime}' \
+    -X 'github.com/dzhcool/buildinfo.build_version=' \
+    -X 'github.com/dzhcool/buildinfo.build_go_version=${buildGoVersion}' \
+"
+
+go build -ldflags "$LDFlags" .
+
+

@@ -1,0 +1,25 @@
+## app.ini
+# zapkit
+zapkit.file = "/tmp/zapkit.log"
+zapkit.level = "debug"
+zapkit.maxsize = 256
+zapkit.maxbackups = 20
+zapkit.maxage = 7
+zapkit.compress = false
+
+
+## golang
+import(
+    "common/modules/zapkit"
+
+    "go.uber.org/zap"
+)
+
+// 初始化日志模块
+log.Init()
+defer log.Sync()
+
+log.Debug("ipquery", zap.Int("IPQuery", IPQuery))
+log.Info("hit hosts file", zap.String("domain", Q.qname), zap.String("answer", h.AnswerToString(m.Answer)))
+
+log.Infof("abc: %s", name)
