@@ -2,6 +2,7 @@ package errors
 
 import (
 	"fmt"
+	"strconv"
 )
 
 type GPError struct {
@@ -26,6 +27,11 @@ func (p *GPError) Error() string {
 
 func (p *GPError) Code() int64 {
 	return p.ErrCode
+}
+
+// 返回string类型的code，某些场景下会用到
+func (p *GPError) CodeString() string {
+	return strconv.FormatInt(p.ErrCode, 10)
 }
 
 func (p *GPError) String() string {
