@@ -17,7 +17,6 @@ func DateToTime(date string) int64 {
 	if err != nil {
 		return 0
 	}
-
 	return stime.Unix()
 }
 
@@ -45,4 +44,12 @@ func TimeToDateInt(timestamp int64, params ...string) int {
 		return 0
 	}
 	return n
+}
+
+// string to time
+func StringToTime(str string) time.Time {
+	format := "2006-01-02 15:04:05"
+	loc, _ := time.LoadLocation("Local")
+	stime, _ := time.ParseInLocation(format, str, loc)
+	return stime
 }
